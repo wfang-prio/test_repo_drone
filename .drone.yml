@@ -1,8 +1,16 @@
 kind: pipeline
-name: default
+name: test_docker_pipeline
 
 steps:
-- name: test
+- name: prep
   image: maven:3-jdk-10
   commands:
   - mvn --version
+
+- name: hello_world
+  image: ubuntu:latest
+  commands:
+  - echo 'Hello World!'
+  - echo 'Repo: $DRONE_REPO_NAME'
+  - echo 'Stage: $DRONE_STAGE_NAME'
+  - echo 'Step: $DRONE_STEP_NAME'
