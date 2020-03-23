@@ -11,6 +11,6 @@ steps:
   image: ubuntu:latest
   commands:
   - echo "Hello World!"
-  - echo "Repo&#58; $DRONE_REPO_NAME"
-  - echo "Stage&#58; $DRONE_STAGE_NAME"
-  - echo "Step&#58; $DRONE_STEP_NAME"
+  - echo "Repo:\ $DRONE_REPO_NAME"
+  - echo "Stage:\ $DRONE_STAGE_NAME"
+  - echo "Step:\ $DRONE_STEP_NAME"
