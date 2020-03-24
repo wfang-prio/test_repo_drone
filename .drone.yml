@@ -1,6 +1,9 @@
 kind: pipeline
 name: test_docker_pipeline
 
+environment:
+  DEFAULT_NAME: NAME
+
 steps:
 - name: prep
   image: maven:3-jdk-10
@@ -26,4 +29,11 @@ steps:
   image: openjdk:latest
   commands:
   - javac ./com/priologic/hello/Hello.java
-  - java com.priologic.hello.Hello
+  - java com.priologic.hello.Hello $DEFAULT_NAME
+  - java com.priologic.hello.Hello $SECRET1
+  - java com.priologic.hello.Hello $SECRET2
+  environment:
+    SECRET1:
+      from_secret: secret1
+    SECRET2:
+      from_secret: secret2
