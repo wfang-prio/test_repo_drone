@@ -16,7 +16,7 @@ steps:
   - echo "Step:$DRONE_STEP_NAME"
 
 - name: hello_world_java
-  image: ubuntu:latest
+  image: openjdk:latest
   commands:
   - javac ./com/priologic/hello/Hello.java
   - java com.priologic.hello.Hello
