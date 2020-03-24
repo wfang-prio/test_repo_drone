@@ -3,13 +3,16 @@ package com.priologic.hello;
 public class Hello {
 	public static void main(String[] args) {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Hello ");
 		if (args.length > 0) {
-			sb.append(args[0]);
+			sb.append("Hello ");
+			for (int i = 0; i < args.length; i++) {
+				sb.append(args[i]);
+				sb.append(", ");
+			}
+			sb.replace(sb.length()-2, sb.length(), "!");
 		} else {
-			sb.append("World");
+			sb.append("Hello World!");
 		}
-		sb.append("!");
 		System.out.println(sb.toString());
 		System.exit(0);
 	}
