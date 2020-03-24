@@ -1,6 +1,12 @@
 kind: pipeline
 name: test_docker_pipeline
 
+environment:
+  SECRET1:
+    from_secret: secret1
+  SECRET2:
+    from_secret: secret2
+
 steps:
 - name: prep
   image: maven:3-jdk-10
@@ -14,6 +20,8 @@ steps:
   - echo "Repo:$DRONE_REPO_NAME"
   - echo "Stage:$DRONE_STAGE_NAME"
   - echo "Step:$DRONE_STEP_NAME"
+  - echo "Secret 1:$SECRET1"
+  - echo "Secret 2:$SECRET2"
 
 - name: hello_world_java
   image: openjdk:latest
